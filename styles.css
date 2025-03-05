@@ -85,3 +85,21 @@ footer {
     height: 300px; /* Ajuste la hauteur des images */
     object-fit: cover; /* Coupe l'image pour remplir la zone définie */
 }
+
+.half-beer {
+    position: fixed;
+    bottom: 0;
+    right: 0%;
+    width: 15%; /* Adjust size as needed */
+    height: auto;
+  }
+  
+  .full-beer {
+    position: fixed;
+    bottom: 0;
+    right: 0;
+    width: 15%; /* Adjust size as needed */
+    height: auto;
+    opacity: 0;
+    transition: opacity 0.5s;
+  }
