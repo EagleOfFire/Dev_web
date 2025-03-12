@@ -9,8 +9,8 @@ window.addEventListener('scroll', function() {
   const scrollPercent = scrollTop / docHeight;
 
   fullBeer.style.opacity = scrollPercent;
-  const startInset = 85; // starting bottom inset percentage
-  const endInset = 0;    // ending bottom inset percentage
+  const startInset = 92; // starting bottom inset percentage
+  const endInset = 12;    // ending bottom inset percentage
   const currentInset = startInset - scrollPercent * (startInset - endInset);
 
   beerImage.style.clipPath = `inset(0 0 ${currentInset}% 0)`;
