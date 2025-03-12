@@ -30,6 +30,19 @@ nav ul li a {
     font-weight: bold;
 }
 
+.panier {
+    margin-left: auto; /* Aligne le panier à droite */
+    margin-right: 20px;
+    display: inline-block;
+}
+
+.icon-panier {
+    width: 20px; /* Ajuste la taille pour correspondre au texte */
+    height: 20px;
+    filter: invert(100%); /* Rend l'icône blanche */
+    vertical-align: middle; /* Aligne avec le texte */
+}
+
 section {
     padding: 20px;
     margin: 20px auto;
@@ -85,3 +98,205 @@ footer {
     height: 300px; /* Ajuste la hauteur des images */
     object-fit: cover; /* Coupe l'image pour remplir la zone définie */
 }
+
+/******************/
+/* Partie CONTACT */
+/******************/
+form {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+    max-width: 400px;
+    margin: 0 auto;
+}
+
+form div {
+    margin-bottom: 15px;
+}
+
+textarea {
+    height: 80px;
+    padding: 8px;
+    margin-top: 5px;
+}
+
+label {
+    font-weight: bold;
+    margin-bottom: 5px;
+}
+
+input, textarea {
+    width: 100%;
+    box-sizing: border-box;
+}
+
+.button {
+    height: 2.5em;
+    width: auto; /* Ajuste la largeur selon le texte */
+    padding: 10px 20px; /* Ajuste l'espace autour du texte */
+    border-radius: 1em;
+    border: 0.1rem solid transparent;
+    background-color: #d4a017;
+    transition: 0.3s;
+    font-size: 1em;
+    white-space: nowrap; /* Empêche le texte de passer à la ligne */
+    display: inline-flex; /* Centre le texte */
+    align-items: center;
+    justify-content: center;
+}
+
+button {
+    background: #fff;
+    background-color: #d4a017;
+    color: white;
+    border: none;
+    padding: 10px 20px;
+    display: inline-block;
+    font-size: 15px;
+    font-weight: bold;
+    width: 120px;
+    text-transform: uppercase;
+    cursor: pointer;
+    transform: skew(-21deg);
+    position: relative;
+    transition: all 0.3s;
+    border-radius: 4px;
+}
+
+.button:hover {
+    cursor: pointer;
+    transform: scale(1.05) rotate(3deg);
+}
+
+.button:active {
+    animation: borderMove 0.5s forwards;
+    transform: scale(0.9) rotate(-3deg);
+    background-color: rgb(0, 0, 0);
+    color: #d4a017;
+    border: 0.1rem solid #d4a017;
+}
+
+@keyframes borderMove {
+    0% {
+        border-width: 0.1rem;
+        transform: scale(1) rotate(0deg);
+    }
+
+    50% {
+        border-width: 0.4rem;
+        transform: scale(0.9) rotate(-3deg);
+    }
+
+    100% {
+        border-width: 0.15rem;
+        transform: scale(1) rotate(0deg);
+    }
+}
+
+/**********************************/
+/* Ajustement des boutons paniers */
+/**********************************/
+.btn-ajout {
+    background: none;
+    border: none;
+    cursor: pointer;
+    transition: transform 0.3s ease;
+}
+
+.btn-ajout:hover {
+    transform: rotate(90deg);
+}
+
+/**********************************/
+/* Style du bouton "Add" */
+/**********************************/
+
+button span {
+    display: inline-block;
+    transform: skew(21deg);
+}
+
+button::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    bottom: 0;
+    right: 100%;
+    left: 0;
+    background: rgb(20, 20, 20);
+    opacity: 0;
+    z-index: -1;
+    transition: all 0.5s;
+}
+
+button:hover::before {
+    left: 0;
+    right: 0;
+    opacity: 1;
+}
+
+
+/* Réduction de la largeur du tableau */
+table {
+    width: 60%;
+    margin: auto;
+    border-collapse: collapse;
+}
+
+th, td {
+    border: 1px solid #b58900;
+    padding: 10px;
+    text-align: center; /* Centre le texte dans les cellules */
+}
+
+/* Style des en-têtes */
+th {
+    background-color: #d4a017;
+    color: white;
+}
+
+/* Style du champ quantité */
+input[type="number"] {
+    width: 50px;
+    text-align: center;
+    padding: 5px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+}
+
+/* Effet au survol */
+button:hover {
+    background: black;
+    background-color: #b58900;
+    color: white;
+}
+
+/* Alignement du texte et des boutons */
+td button {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin: auto;
+}
+
+
+/* Alignement des champs quantité et du bouton */
+td form {
+    display: flex;
+    align-items: center;
+    gap: 10px; /* Espace entre le champ et le bouton */
+    justify-content: center; /* Centre les éléments */
+}
+
+/********************************/
+/* Ajuster la taille du tableau */
+/********************************/
+table {
+    width: 80%; /* Ajustez selon vos besoins */
+    margin: 20px auto; /* Centre le tableau */
+    border-collapse: collapse;
+}
+
+/********************************/
+/********************************/
+/********************************/
