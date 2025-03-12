@@ -1,3 +1,7 @@
+<?php
+setcookie("dernier_page", basename($_SERVER['PHP_SELF']), time() + 3600, "/");
+?>
+
 <section id="accueil">
         <h2>À propos de nous</h2>
         <p>Passionnés par la bière artisanale depuis plus de 55 ans, nous mettons notre savoir-faire et notre expertise au service de votre plaisir.<br> 
@@ -41,60 +45,109 @@
             </td>
         </tr>
 
-            <!-- <tr>
-                <td>L'Ambrée Tendre</td>
-                <td>2€</td>
-                <td><input type="number" min="1" value="1"></td>
-                <td><button><span>Add</span></button></td>
-            </tr> -->
-            <tr>
-                <td>La Brune Mystère</td>
-                <td>3€</td>
-                <td><input type="number" min="1" value="1"></td>
-                <td><button><span>Add</span></button></td>
-            </tr>
-            <tr>
-                <td>La Blonde Affaire</td>
-                <td>4€</td>
-                <td><input type="number" min="1" value="1"></td>
-                <td><button><span>Add</span></button></td>
-            </tr>
-            <tr>
-                <td>L'Ambrée Royale</td>
-                <td>5€</td>
-                <td><input type="number" min="1" value="1"></td>
-                <td><button><span>Add</span></button></td>
-            </tr>
-            <tr>
-                <td>La Brune Costaud</td>
-                <td>6€</td>
-                <td><input type="number" min="1" value="1"></td>
-                <td><button><span>Add</span></button></td>
-            </tr>
-            <tr>
-                <td>La Blonde Élite</td>
-                <td>7€</td>
-                <td><input type="number" min="1" value="1"></td>
-                <td><button><span>Add</span></button></td>
-            </tr>
-            <tr>
-                <td>L'Ambrée Suprême</td>
-                <td>8€</td>
-                <td><input type="number" min="1" value="1"></td>
-                <td><button><span>Add</span></button></td>
-            </tr>
-            <tr>
-                <td>La Brune Fatale</td>
-                <td>9€</td>
-                <td><input type="number" min="1" value="1"></td>
-                <td><button><span>Add</span></button></td>
-            </tr>
-            <tr>
-                <td>L'Impériale Brune</td>
-                <td>100000€</td>
-                <td><input type="number" min="1" value="1"></td>
-                <td><button><span>Add</span></button></td>
-            </tr>
+        <tr>
+            <td>La Brune Mystère</td>
+            <td>3€</td>
+            <td>
+                <form action="ajouter_panier.php" method="POST">
+                    <input type="hidden" name="nom" value="La Brune Mystère">
+                    <input type="hidden" name="prix" value="3">
+                    <input type="number" name="quantite" min="1" value="1">
+                    <button type="submit">Add</button>
+                </form>
+            </td>
+        </tr>
+
+        <tr>
+            <td>La Blonde Affaire</td>
+            <td>4€</td>
+            <td>
+                <form action="ajouter_panier.php" method="POST">
+                    <input type="hidden" name="nom" value="La Blonde Affaire">
+                    <input type="hidden" name="prix" value="4">
+                    <input type="number" name="quantite" min="1" value="1">
+                    <button type="submit">Add</button>
+                </form>
+            </td>
+        </tr>
+
+        <tr>
+            <td>L'Ambrée Royale</td>
+            <td>5€</td>
+            <td>
+                <form action="ajouter_panier.php" method="POST">
+                    <input type="hidden" name="nom" value="L'Ambrée Royale">
+                    <input type="hidden" name="prix" value="5">
+                    <input type="number" name="quantite" min="1" value="1">
+                    <button type="submit">Add</button>
+                </form>
+            </td>
+        </tr>
+
+        <tr>
+            <td>La Brune Costaud</td>
+            <td>6€</td>
+            <td>
+                <form action="ajouter_panier.php" method="POST">
+                    <input type="hidden" name="nom" value="La Brune Costaud">
+                    <input type="hidden" name="prix" value="6">
+                    <input type="number" name="quantite" min="1" value="1">
+                    <button type="submit">Add</button>
+                </form>
+            </td>
+        </tr>
+
+        <tr>
+            <td>La Blonde Élite</td>
+            <td>7€</td>
+            <td>
+                <form action="ajouter_panier.php" method="POST">
+                    <input type="hidden" name="nom" value="La Blonde Élite">
+                    <input type="hidden" name="prix" value="7">
+                    <input type="number" name="quantite" min="1" value="1">
+                    <button type="submit">Add</button>
+                </form>
+            </td>
+        </tr>
+
+        <tr>
+            <td>L'Ambrée Suprême</td>
+            <td>8€</td>
+            <td>
+                <form action="ajouter_panier.php" method="POST">
+                    <input type="hidden" name="nom" value="L'Ambrée Suprême">
+                    <input type="hidden" name="prix" value="8">
+                    <input type="number" name="quantite" min="1" value="1">
+                    <button type="submit">Add</button>
+                </form>
+            </td>
+        </tr>
+
+        <tr>
+            <td>La Brune Fatale</td>
+            <td>9€</td>
+            <td>
+                <form action="ajouter_panier.php" method="POST">
+                    <input type="hidden" name="nom" value="La Brune Fatale">
+                    <input type="hidden" name="prix" value="9">
+                    <input type="number" name="quantite" min="1" value="1">
+                    <button type="submit">Add</button>
+                </form>
+            </td>
+        </tr>
+
+        <tr>
+            <td>L'Impériale Brune</td>
+            <td>100000€</td>
+            <td>
+                <form action="ajouter_panier.php" method="POST">
+                    <input type="hidden" name="nom" value="L'Impériale Brune">
+                    <input type="hidden" name="prix" value="100000">
+                    <input type="number" name="quantite" min="1" value="1">
+                    <button type="submit">Add</button>
+                </form>
+            </td>
+        </tr>
         </table>
     </section>
     

@@ -11,6 +11,11 @@
                     <a href="index.php?page=panier">
                         <img src="/Photos/basket.svg" alt="Panier" class="icon-panier">
                     </a>
+                </li>
+                <li class="connexion">
+                    <a href="index.php?page=connexion">
+                        <img src="/Photos/account.svg" alt="Connexion" class="icon-connexion">
+                    </a>
                 </li>        
             </ul>
         </nav>

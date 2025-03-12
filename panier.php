@@ -1,3 +1,7 @@
+<?php
+setcookie("dernier_page", basename($_SERVER['PHP_SELF']), time() + 3600, "/");
+?>
+
 <section id="panier">
     <h2>Votre panier</h2>
     <p>Retrouvez ici les articles que vous avez ajoutés à votre panier.</p>

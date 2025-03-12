@@ -15,13 +15,15 @@
 <body>
 
     <?php session_start(); ?>
-    
     <?php include "header.php"; ?>
 
     <?php if (isset($_GET["page"])) {
         switch ($_GET["page"]) {
             case "panier":
                 include "panier.php";
+                break;
+            case "connexion":
+                include "connexion.php";
                 break;
             default:
                 include "main.php";
@@ -35,3 +37,4 @@
     
 </body>
 </html>
+
