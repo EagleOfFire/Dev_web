@@ -31,6 +31,7 @@
         include "main.php";
     } ?>
 
+    <?php include "beer.php"; ?>
     <?php include "footer.php"; ?>
     
 </body>

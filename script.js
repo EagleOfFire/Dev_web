@@ -15,3 +15,13 @@ window.addEventListener('scroll', function() {
 
   beerImage.style.clipPath = `inset(0 0 ${currentInset}% 0)`;
 });
+
+document.getElementById("contactForm").addEventListener("submit", function(event) {
+  event.preventDefault(); // Empêche l'envoi classique du formulaire
+
+  // Vérifie si tous les champs sont valides
+  if (this.checkValidity()) {
+      alert("Votre message a été envoyé !");
+      this.reset(); // Réinitialise le formulaire après envoi
+  }
+});

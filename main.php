@@ -40,13 +40,6 @@
                 </form>
             </td>
         </tr>
-
-            <!-- <tr>
-                <td>L'Ambrée Tendre</td>
-                <td>2€</td>
-                <td><input type="number" min="1" value="1"></td>
-                <td><button><span>Add</span></button></td>
-            </tr> -->
             <tr>
                 <td>La Brune Mystère</td>
                 <td>3€</td>
@@ -118,13 +111,13 @@
 <div id="carouselExampleAutoplaying" class="carousel slide" data-bs-ride="carousel">
     <div class="carousel-inner">
         <div class="carousel-item active">
-            <img src="/Photos/biere1.jpg" class="d-block w-100" alt="Bière artisanale n°1">
+            <img src="/images/biere1.jpg" class="d-block w-100" alt="Bière artisanale n°1">
         </div>
         <div class="carousel-item">
-            <img src="/Photos/biere2.jpg" class="d-block w-100" alt="Bière artisanale n°2">
+            <img src="/images/biere2.jpg" class="d-block w-100" alt="Bière artisanale n°2">
         </div>
         <div class="carousel-item">
-            <img src="/Photos/biere3.jpg" class="d-block w-100" alt="Bière artisanale n°3">
+            <img src="/images/biere3.jpg" class="d-block w-100" alt="Bière artisanale n°3">
         </div>
     </div>
     <button class="carousel-control-prev" type="button" data-bs-target="#carouselExampleAutoplaying"
@@ -158,15 +151,3 @@
         <button type="submit" class="button">Envoyer</button>
     </form>
 </section>
-
-<script>
-    document.getElementById("contactForm").addEventListener("submit", function(event) {
-        event.preventDefault(); // Empêche l'envoi classique du formulaire
-
-        // Vérifie si tous les champs sont valides
-        if (this.checkValidity()) {
-            alert("Votre message a été envoyé !");
-            this.reset(); // Réinitialise le formulaire après envoi
-        }
-    });
-</script>
