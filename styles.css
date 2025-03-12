@@ -71,23 +71,6 @@ h2 {
     padding-bottom: 5px;
 }
 
-table {
-    width: 100%;
-    border-collapse: collapse;
-    margin-top: 10px;
-}
-
-table, th, td {
-    border: 1px solid #b58900;
-    padding: 10px;
-    text-align: left;
-}
-
-th {
-    background-color: #d4a017;
-    color: white;
-}
-
 img {
     width: 200px;
     margin: 10px;
@@ -110,6 +93,88 @@ footer {
 .carousel img {
     height: 300px; /* Ajuste la hauteur des images */
     object-fit: cover; /* Coupe l'image pour remplir la zone définie */
+}
+
+.carousel-control-next{
+    background: #fff;
+    background-color: #d4a017;
+    color: white;
+    border: none;
+    padding: 10px 20px;
+    display: inline-block;
+    font-size: 15px;
+    font-weight: bold;
+    width: 120px;
+    text-transform: uppercase;
+    cursor: pointer;
+    position: relative;
+    transition: all 0.3s;
+    border-radius: 4px;
+    display: inline-block;
+}
+
+.carousel-control-prev{
+    background: #fff;
+    background-color: #d4a017;
+    color: white;
+    border: none;
+    padding: 10px 20px;
+    display: inline-block;
+    font-size: 15px;
+    font-weight: bold;
+    width: 120px;
+    text-transform: uppercase;
+    cursor: pointer;
+    position: relative;
+    transition: all 0.3s;
+    border-radius: 4px;
+    display: inline-block;
+}
+
+.half-beer {
+    position: fixed;
+    bottom: 0;
+    right: 0%;
+    width: 15%; /* Adjust size as needed */
+    height: auto;
+}
+
+.full-beer {
+    position: fixed;
+    bottom: 0;
+    right: 0;
+    width: 15%; /* Adjust size as needed */
+    height: auto;
+    opacity: 0;
+    transition: opacity 0.5s;
+    z-index: 15; /* Ensure .mousse is always in front */
+}
+
+.beer-tape {
+    position: absolute;
+    top: 0;
+    right: -0.6%;
+    width: 15%; /* Adjust size as needed */
+    height: auto;
+}
+
+.beer {
+    position: absolute;
+    top: 28.5%; /* Position below .beer-tape */
+    right: 3%; /* Position to the right of .beer-tape */
+    width: 10%; /* Adjust size as needed */
+    z-index: 11;
+    clip-path: inset(0 0 92% 0); /* Start fully hidden */
+    transition: clip-path 0.1s linear;
+}
+
+.mousse {
+    position: fixed;
+    top: 20%;
+    right: 2%;
+    width: 10%; /* Adjust size as needed */
+    height: auto;
+    z-index: 10; /* Ensure .mousse is always in front */
 }
 
 /******************/
@@ -143,23 +208,63 @@ input, textarea {
     box-sizing: border-box;
 }
 
-.button {
-    height: 2.5em;
-    width: auto; /* Ajuste la largeur selon le texte */
-    padding: 10px 20px; /* Ajuste l'espace autour du texte */
-    border-radius: 1em;
-    border: 0.1rem solid transparent;
-    background-color: #d4a017;
-    transition: 0.3s;
-    font-size: 1em;
-    white-space: nowrap; /* Empêche le texte de passer à la ligne */
-    display: inline-flex; /* Centre le texte */
-    align-items: center;
-    justify-content: center;
+/**********************************/
+/* Style de "table" */
+/**********************************/
+
+table {
+    width: 80%;
+    margin: 20px auto;
+    border-collapse: collapse;
+    table-layout: fixed; /* Needed for colgroup widths to apply */
 }
 
-button {
-    background: #fff;
+table, th, td {
+    border: 1px solid #b58900;
+    padding: 15px;
+    text-align: center;
+}
+
+th {
+    background-color: #d4a017;
+    color: white;
+}
+
+/* Fix header layout for "Quantité" and "Ajouter" */
+.double-header {
+    display: flex;
+    justify-content: space-around;
+    gap: 25%
+}
+
+/* Ensure the form takes full width within the cell */
+td:nth-child(3) { /* Target only the "Quantity" column */
+    width: 50%;
+}
+
+.buy_form {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+    gap: 10px; /* Ensures consistent spacing */
+    width: 100%; /* Ensures form takes full cell width */
+}
+
+.buy_form input[type="number"] {
+    width: 50px; /* Adjust input size for better spacing */
+    text-align: center;
+}
+
+/**********************************/
+/* Style du bouton "Add" */
+/**********************************/
+
+.add_shopping_cart_button {
+    height: 2.5em;
+    white-space: nowrap; /* Empêche le texte de passer à la ligne */
+    align-items: center;
+    justify-content: center;
     background-color: #d4a017;
     color: white;
     border: none;
@@ -176,34 +281,35 @@ button {
     border-radius: 4px;
 }
 
-.button:hover {
-    cursor: pointer;
-    transform: scale(1.05) rotate(3deg);
+.add_shopping_cart_button span {
+    display: inline-block;
+    transform: skew(21deg);
 }
 
-.button:active {
-    animation: borderMove 0.5s forwards;
-    transform: scale(0.9) rotate(-3deg);
-    background-color: rgb(0, 0, 0);
-    color: #d4a017;
-    border: 0.1rem solid #d4a017;
+.add_shopping_cart_button::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    bottom: 0;
+    right: 100%;
+    left: 0;
+    background: rgb(20, 20, 20);
+    opacity: 0;
+    z-index: -1;
+    transition: all 0.5s;
 }
 
-@keyframes borderMove {
-    0% {
-        border-width: 0.1rem;
-        transform: scale(1) rotate(0deg);
-    }
+.add_shopping_cart_button:hover::before {
+    left: 0;
+    right: 0;
+    opacity: 1;
+}
 
-    50% {
-        border-width: 0.4rem;
-        transform: scale(0.9) rotate(-3deg);
-    }
-
-    100% {
-        border-width: 0.15rem;
-        transform: scale(1) rotate(0deg);
-    }
+/* Effet au survol */
+.add_shopping_cart_button:hover {
+    background: black;
+    background-color: #b58900;
+    color: white;
 }
 
 /**********************************/
@@ -220,16 +326,38 @@ button {
     transform: rotate(90deg);
 }
 
-/**********************************/
-/* Style du bouton "Add" */
-/**********************************/
-
-button span {
-    display: inline-block;
-    transform: skew(21deg);
+/* Style du champ quantité */
+input[type="number"] {
+    width: 50px;
+    text-align: center;
+    padding: 5px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
 }
 
-button::before {
+.contact_submit_button {
+    height: 2.5em;
+    white-space: nowrap; /* Empêche le texte de passer à la ligne */
+    align-items: center;
+    justify-content: center;
+    background: #fff;
+    background-color: #d4a017;
+    color: white;
+    border: none;
+    padding: 10px 20px;
+    font-size: 15px;
+    font-weight: bold;
+    text-transform: uppercase;
+    cursor: pointer;
+    transform: skew(-21deg);
+    border-radius: 4px;
+    display: block;
+    margin: 0 auto;
+    width: 100%;
+    font-style: normal; /* Ensure text is not italic */
+}
+
+.contact_submit_button::before {
     content: '';
     position: absolute;
     top: 0;
@@ -240,79 +368,27 @@ button::before {
     opacity: 0;
     z-index: -1;
     transition: all 0.5s;
+    border-radius: 4px;
 }
 
-button:hover::before {
+.contact_submit_button:hover::before {
     left: 0;
     right: 0;
     opacity: 1;
 }
 
-
-/* Réduction de la largeur du tableau */
-table {
-    width: 60%;
-    margin: auto;
-    border-collapse: collapse;
-}
-
-th, td {
-    border: 1px solid #b58900;
-    padding: 10px;
-    text-align: center; /* Centre le texte dans les cellules */
-}
-
-/* Style des en-têtes */
-th {
-    background-color: #d4a017;
-    color: white;
-}
-
-/* Style du champ quantité */
-input[type="number"] {
-    width: 50px;
-    text-align: center;
-    padding: 5px;
-    border: 1px solid #ccc;
-    border-radius: 5px;
+.contact_submit_button span {
+    display: inline-block;
 }
 
 /* Effet au survol */
-button:hover {
+.contact_submit_button:hover {
     background: black;
     background-color: #b58900;
     color: white;
+    border-radius: 4px;
 }
 
-/* Alignement du texte et des boutons */
-td button {
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    margin: auto;
-}
-
-
-/* Alignement des champs quantité et du bouton */
-td form {
-    display: flex;
-    align-items: center;
-    gap: 10px; /* Espace entre le champ et le bouton */
-    justify-content: center; /* Centre les éléments */
-}
-
-/********************************/
-/* Ajuster la taille du tableau */
-/********************************/
-table {
-    width: 80%; /* Ajustez selon vos besoins */
-    margin: 20px auto; /* Centre le tableau */
-    border-collapse: collapse;
-}
-
-/********************************/
-/********************************/
-/********************************/
 header h2 {
     color: white;
 }

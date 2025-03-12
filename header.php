@@ -9,7 +9,7 @@
                 <li><a href="index.php?page=main#contact">Contact</a></li>
                 <li class="panier">
                     <a href="index.php?page=panier">
-                        <img src="/Photos/basket.svg" alt="Panier" class="icon-panier">
+                        <img src="/images/basket.svg" alt="Panier" class="icon-panier">
                     </a>
                 </li>
                 <li class="connexion">
