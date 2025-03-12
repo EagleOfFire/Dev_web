@@ -94,7 +94,7 @@ footer {
     height: auto;
   }
   
-  .full-beer {
+.full-beer {
     position: fixed;
     bottom: 0;
     right: 0;
@@ -102,4 +102,32 @@ footer {
     height: auto;
     opacity: 0;
     transition: opacity 0.5s;
-  }
+    z-index: 15; /* Ensure .mousse is always in front */
+}
+
+.beer-tape{
+    position: absolute;
+    top: 0;
+    right: -2%;
+    width: 15%; /* Adjust size as needed */
+    height: auto;
+}
+
+.beer{
+    position: absolute;
+    top: 28.5%; /* Position below .beer-tape */
+    right: 2%; /* Position to the right of .beer-tape */
+    width: 10%; /* Adjust size as needed */
+    z-index: 11;
+    clip-path: inset(0 0 85% 0); /* Start fully hidden */
+    transition: clip-path 0.1s linear;
+}
+
+.mousse{
+    position: fixed;
+    top: 20%;
+    right: 2%;
+    width: 10%; /* Adjust size as needed */
+    height: auto;
+    z-index: 10; /* Ensure .mousse is always in front */
+}
