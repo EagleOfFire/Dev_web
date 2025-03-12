@@ -1,20 +1,33 @@
 <?php
 $error = "";
 
+// Connexion à la base de données
+$host = "127.0.0.1"; // Adresse du serveur
+$dbname = "user"; // Remplace par le nom de ta base de données
+$username_db = "root"; // Remplace par ton utilisateur MySQL
+$password_db = ""; // Remplace par ton mot de passe MySQL
+
+try {
+    $pdo = new PDO("mysql:host=$host;dbname=$dbname;charset=utf8", $username_db, $password_db);
+    $pdo->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
+} catch (PDOException $e) {
+    die("Erreur de connexion à la base de données: " . $e->getMessage());
+}
+
 // Vérifier si le formulaire est soumis
 if ($_SERVER["REQUEST_METHOD"] == "POST") {
-    // Identifiants de test (à remplacer par une base de données)
-    $user_valid = "admin";
-    $password_valid = "1234";
-
-    // Récupérer et nettoyer les entrées
-    $username = htmlspecialchars(trim($_POST["username"]));
+    $email = htmlspecialchars(trim($_POST["email"]));
     $password = htmlspecialchars(trim($_POST["password"]));
 
-    // Vérifier les identifiants
-    if ($username === $user_valid && $password === $password_valid) {
-        $_SESSION["user"] = $username;
-        header("Location: index.php"); // Rediriger vers la page principale
+    // Vérifier les identifiants dans la base de données
+    $stmt = $pdo->prepare("SELECT * FROM client WHERE email = :email");
+    $stmt->execute(["email" => $email]);
+    $user = $stmt->fetch(PDO::FETCH_ASSOC);
+
+    if ($user && password_verify($password, $user["mot_de_passe"])) {
+        $_SESSION["user_id"] = $user["id"];
+        $_SESSION["email"] = $user["email"];
+        header("Location: index.php"); // Rediriger après connexion
         exit();
     } else {
         $error = "Identifiant ou mot de passe incorrect.";
@@ -38,8 +51,8 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
 
     <section>
         <form action="connexion.php" method="POST">
-            <label for="username">Identifiant :</label>
-            <input type="text" id="username" name="username" required>
+            <label for="email">Email :</label>
+            <input type="email" id="email" name="email" required>
 
             <label for="password">Mot de passe :</label>
             <input type="password" id="password" name="password" required>
@@ -50,6 +63,12 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
 
             <button type="submit">Se connecter</button>
         </form>
+
+        <!-- Bouton d'inscription -->
+        <form action="inscription.php" method="GET">
+            <button type="submit">S'inscrire</button>
+        </form>
+
     </section>
 
 </body>
