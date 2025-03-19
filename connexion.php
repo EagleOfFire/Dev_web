@@ -26,8 +26,8 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     $email = htmlspecialchars(trim($_POST["email"]));
     $password = htmlspecialchars(trim($_POST["password"]));
 
-    // Vérifier si l'utilisateur existe
-    $stmt = $pdo->prepare("SELECT * FROM clients WHERE email = :email");
+    // Vérifier les identifiants dans la base de données
+    $stmt = $pdo->prepare("SELECT * FROM client WHERE email = :email");
     $stmt->execute(["email" => $email]);
     $user = $stmt->fetch(PDO::FETCH_ASSOC);
 

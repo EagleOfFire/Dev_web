@@ -25,3 +25,17 @@ document.getElementById("contactForm").addEventListener("submit", function(event
       this.reset(); // Réinitialise le formulaire après envoi
   }
 });
+
+function updateBeerContainerHeight() {
+  const beerContainer = document.querySelector('.beer-container');
+  const bodyHeight = document.body.clientHeight; // Get body height
+
+  if (beerContainer) {
+      beerContainer.style.height = `${bodyHeight * 0.77}px`; // Set height based on 71.5% of body height
+  }
+}
+
+// Run when the page loads and on resize
+window.addEventListener('load', updateBeerContainerHeight);
+window.addEventListener('resize', updateBeerContainerHeight);
+
