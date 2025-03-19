@@ -59,21 +59,11 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
 }
 ?>
 
-<!DOCTYPE html>
-<html lang="fr">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Inscription</title>
-    <link rel="stylesheet" href="styles.css">
-</head>
-<body>
-
     <header>
         <h2>Inscription</h2>
-    </header>
+    </header> 
 
-    <section>
+    <section id="inscription">
         <form action="inscription.php" method="POST">
             <label for="nom">Nom :</label>
             <input type="text" id="nom" name="nom" required>
@@ -114,6 +104,3 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
             <button type="submit">S'inscrire</button>
         </form>
     </section>
-
-</body>
-</html>
