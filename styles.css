@@ -158,13 +158,20 @@ footer {
     height: auto;
 }
 
-.beer {
+.beer-container {
     position: absolute;
-    top: 28.5%; /* Position below .beer-tape */
-    right: 3%; /* Position to the right of .beer-tape */
-    width: 10%; /* Adjust size as needed */
+    top: 28.5%;
+    right: 3%;
+    width: 10%;
+    flex: 1;
+    height: 100%;
+    overflow: hidden; /* Prevents scrolling */
     z-index: 11;
-    clip-path: inset(0 0 92% 0); /* Start fully hidden */
+}
+
+.beer {
+    width: 100%;
+    clip-path: inset(0 0 92% 0); /* Keeps the intended effect */
     transition: clip-path 0.1s linear;
 }
 

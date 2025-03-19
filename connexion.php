@@ -20,7 +20,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     $password = htmlspecialchars(trim($_POST["password"]));
 
     // Vérifier les identifiants dans la base de données
-    $stmt = $pdo->prepare("SELECT * FROM client WHERE email = :email");
+    $stmt = $pdo->prepare("SELECT * FROM clients WHERE email = :email");
     $stmt->execute(["email" => $email]);
     $user = $stmt->fetch(PDO::FETCH_ASSOC);
 
